@@ -18,14 +18,14 @@ public class Main {
             result = handler.writeFile(path, fileContent);
             getOutput("RESULT: " + result);
         }catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+
 
         }
         try {
              content = handler.readFile(path);
             getOutput("FILE CONTENT: " + content);
         }catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
+
 
         }
 
