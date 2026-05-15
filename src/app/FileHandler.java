@@ -6,14 +6,14 @@ import java.io.IOException;
 
 public class FileHandler {
 
-    private final static String BASE_PATH = "files/";
 
-    public String writeFile(String fileName, String fileContent) {
-        try(FileWriter fw = new FileWriter( BASE_PATH + fileName + ".txt")) {
+    public String writeFile(String path, String fileContent) {
+        try(FileWriter fw = new FileWriter( path )) {
             fw.write(fileContent);
             return "Success.";
         } catch (Exception e) {
-            return e.getMessage();
+            System.out.println("Error writing content to file by path: " + path);
+            throw new RuntimeException(e);
         }
     }
 
@@ -27,7 +27,8 @@ public class FileHandler {
             }
             return  stringBuilder.toString();
         } catch (IOException ex) {
-            return ex.getMessage();
+            System.out.println("Error reading file by path: " + path);
+            throw new RuntimeException(ex);
         }
     }
 }
