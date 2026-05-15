@@ -12,7 +12,8 @@ public class FileHandler {
             fw.write(fileContent);
             return "Success.";
         } catch (Exception e) {
-            return e.getMessage();
+            System.out.println("Error writing content to file by path: " + path);
+            throw new RuntimeException(e);
         }
     }
 
@@ -26,7 +27,8 @@ public class FileHandler {
             }
             return  stringBuilder.toString();
         } catch (IOException ex) {
-            return ex.getMessage();
+            System.out.println("Error reading file by path: " + path);
+            throw new RuntimeException(ex);
         }
     }
 }
