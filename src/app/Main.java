@@ -7,11 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
         FileHandler handler = new FileHandler();
-        String fileName = "myfile";
+        String fileName = "myfile.txt";
+        String path = BASE_PATH + fileName;
         String fileContent = "My very important information.";
 
-        String result = handler.writeFile(fileName, fileContent);
-        String content = handler.readFile(BASE_PATH + fileName + ".txt");
+        String result = handler.writeFile(path, fileContent);
+        String content = handler.readFile(path);
 
         getOutput("RESULT: " + result);
         getOutput("FILE CONTENT: " + content);

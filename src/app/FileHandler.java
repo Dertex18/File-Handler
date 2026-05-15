@@ -6,10 +6,9 @@ import java.io.IOException;
 
 public class FileHandler {
 
-    private final static String BASE_PATH = "files/";
 
-    public String writeFile(String fileName, String fileContent) {
-        try(FileWriter fw = new FileWriter( BASE_PATH + fileName + ".txt")) {
+    public String writeFile(String path, String fileContent) {
+        try(FileWriter fw = new FileWriter( path )) {
             fw.write(fileContent);
             return "Success.";
         } catch (Exception e) {
